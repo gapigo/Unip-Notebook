@@ -1,0 +1,1 @@
+// – Escreva um programa que mostre os números de 50 a 100, utilizando o comando while.
