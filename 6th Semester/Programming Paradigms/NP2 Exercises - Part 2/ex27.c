@@ -32,6 +32,7 @@ int potenciaDe10(int expoente)
     {
         res *= 10;
     }
+
     return res;
 }
 

@@ -20,6 +20,6 @@ int main()
         resultado++;
     };
     resto = aux;
-    printf("%d / %d tem resto %d e só por curiosidade, dá %d / %d = %d", num1, num2, resto, num1, num2, resultado);
+    printf("%d / %d tem resto %d e, só por curiosidade, dá %d / %d = %d", num1, num2, resto, num1, num2, resultado);
     return 0;
 }
