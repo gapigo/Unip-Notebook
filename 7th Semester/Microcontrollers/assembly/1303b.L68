@@ -1,0 +1,73 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 27/03/2023 18:19:23
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9      
+00001000  42B9 00E00000             10      CLR.L $E00000
+00001006  42B9 00E00004             11      CLR.L $E00004
+0000100C  42B9 00E00008             12      CLR.L $E00008
+00001012  42B9 00E0000C             13      CLR.L $E0000C
+00001018                            14      
+00001018                            15  LOOP:
+00001018  13FC 006F 00E0000E        16      MOVE.B #$6F, $E0000E
+00001020  6100 0072                 17      BSR DELAY
+00001024  13FC 007F 00E0000E        18      MOVE.B #$7F, $E0000E
+0000102C  6100 0066                 19      BSR DELAY
+00001030  13FC 0007 00E0000E        20      MOVE.B #$07, $E0000E
+00001038  6100 005A                 21      BSR DELAY
+0000103C  13FC 007D 00E0000E        22      MOVE.B #$7D, $E0000E
+00001044  6100 004E                 23      BSR DELAY
+00001048  13FC 006D 00E0000E        24      MOVE.B #$6D, $E0000E
+00001050  6100 0042                 25      BSR DELAY
+00001054  13FC 0066 00E0000E        26      MOVE.B #$66, $E0000E
+0000105C  6100 0036                 27      BSR DELAY
+00001060  13FC 004F 00E0000E        28      MOVE.B #$4F, $E0000E
+00001068  6100 002A                 29      BSR DELAY
+0000106C  13FC 005B 00E0000E        30      MOVE.B #$5B, $E0000E
+00001074  6100 001E                 31      BSR DELAY
+00001078  13FC 0006 00E0000E        32      MOVE.B #$06, $E0000E
+00001080  6100 0012                 33      BSR DELAY
+00001084  13FC 003F 00E0000C        34      MOVE.B #$3F, $E0000C
+0000108C  6100 0006                 35      BSR DELAY
+00001090                            36      
+00001090  4EF8 1018                 37      JMP LOOP
+00001094                            38      
+00001094                            39  DELAY:
+00001094  203C 0016E360             40      MOVE.L #1500000, D0
+0000109A                            41      
+0000109A                            42  DELAYLOOP:
+0000109A  4E71                      43      NOP
+0000109C  4E71                      44      NOP
+0000109E  4E71                      45      NOP
+000010A0  57C8 FFF8                 46      DBEQ D0, DELAYLOOP
+000010A4                            47      
+000010A4  4E75                      48      RTS
+000010A6                            49      
+000010A6                            50  
+000010A6                            51  * Put program code here
+000010A6                            52  
+000010A6  FFFF FFFF                 53      SIMHALT             ; halt simulator
+000010AA                            54  
+000010AA                            55  * Put variables and constants here
+000010AA                            56  
+000010AA                            57      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+DELAY               1094
+DELAYLOOP           109A
+LOOP                1018
+START               1000

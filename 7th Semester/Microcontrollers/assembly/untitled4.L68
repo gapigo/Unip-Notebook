@@ -1,0 +1,41 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 27/03/2023 18:41:04
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Put program code here
+00001000                            11  
+00001000  13FC 000A 00E00000        12      MOVE.B #$A, $E00000
+00001008                            13      
+00001008  08F9 0007 00E00000        14      BSET #7,    $E00000
+00001010  08F9 0006 00E00000        15      BSET #6,    $E00000
+00001018  08F9 0005 00E00000        16      BSET #5,    $E00000
+00001020                            17      
+00001020  08B9 0007 00E00000        18      BCLR #7,    $E00000
+00001028  08B9 0006 00E00000        19      BCLR #6,    $E00000
+00001030  08B9 0005 00E00000        20      BCLR #5,    $E00000
+00001038                            21      
+00001038  13FC 0099 00E0000A        22      MOVE.B  #%10011001, $E0000A
+00001040                            23  
+00001040  FFFF FFFF                 24      SIMHALT             ; halt simulator
+00001044                            25  
+00001044                            26  * Put variables and constants here
+00001044                            27  
+00001044                            28      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000

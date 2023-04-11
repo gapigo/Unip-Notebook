@@ -1,0 +1,54 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 27/03/2023 18:21:25
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10      
+00001000                            11  *    MOVE #$FADA, D0
+00001000                            12      
+00001000  13FC 003F 00E00000        13      MOVE.B #%00111111, $E00000
+00001008  13FC 0006 00E00002        14      MOVE.B #%00000110, $E00002
+00001010  13FC 005B 00E00004        15      MOVE.B #%01011011, $E00004
+00001018  13FC 004F 00E00006        16      MOVE.B #%01001111, $E00006
+00001020  13FC 0066 00E00008        17      MOVE.B #%01100110, $E00008
+00001028  13FC 006D 00E0000A        18      MOVE.B #%01101101, $E0000A
+00001030  13FC 007D 00E0000C        19      MOVE.B #%01111101, $E0000C
+00001038  13FC 0007 00E0000E        20      MOVE.B #%00000111, $E0000E
+00001040                            21      
+00001040                            22  * --- Code for output ---
+00001040  43F9 00001052             23      LEA     MESSAGE, A1 ; 
+00001046  103C 000E                 24      MOVE.B  #14,D0      ; Moves the number 14 into data register D0
+0000104A  4E4F                      25      TRAP    #15         ; Displays Message
+0000104C                            26      
+0000104C  103C 0009                 27      MOVE.B  #9, D0
+00001050  4E4F                      28      TRAP    #15         ; Halt Simulator
+00001052                            29      
+00001052  =0000000D                 30  CR  EQU     $0D         ; ASCII code for Carriage Return
+00001052  =0000000A                 31  LF  EQU     $0A         ; ASCII code for Line Feed
+00001052= 43 61 72 61 6C 68 ...     32  MESSAGE DC.B    'Caralho', CR, LF, 0 ; ASCII string with new line
+0000105C                            33  SIMHALT             ; halt simulator
+0000105C                            34  
+0000105C                            35  * Put variables and constants here
+0000105C                            36  
+0000105C                            37      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+CR                  D
+LF                  A
+MESSAGE             1052
+SIMHALT             105C
+START               1000
