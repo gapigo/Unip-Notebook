@@ -1,0 +1,71 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 10/04/2023 20:35:47
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00000000                             7  VETOR:  ; VETOR COM OS DIGITOS PARA DISPLAY DE 7 SEGMENTOS
+00000000= 3F                         8      DC.B    %00111111 ; DIGITO 0
+00000001= 06                         9      DC.B    %00000110 ; DIGITO 1
+00000002= 5B                        10      DC.B    %01011011 ; DIGITO 2
+00000003= 4F                        11      DC.B    %01001111 ; DIGITO 3
+00000004                            12  
+00001000                            13      ORG    $1000
+00001000                            14  START:                  ; first instruction of program
+00001000  42B9 00E00000             15      CLR.L   $E00000 ; APAGA OS 2 PRIMEIROS DISPLAYS
+00001006  42B9 00E00004             16      CLR.L   $E00004 ; APAGA OS PRÓXIMOS 2 DISPLAYS
+0000100C  42B9 00E00008             17      CLR.L   $E00008
+00001012  42B9 00E0000C             18      CLR.L   $E0000C ; APAGA OS 2 DISPLAYS DA DIREITA
+00001018                            19      
+00001018                            20      ; QUERO EXIBIR 2023
+00001018  103C 0002                 21      MOVE.B #2,  D0  ; 2 NO 3º DISPLAY
+0000101C  6100 0036                 22      BSR CONVERTER
+00001020  13C0 00E00004             23      MOVE.B D0, $E00004
+00001026                            24      
+00001026  103C 0000                 25      MOVE.B #0, D0
+0000102A  6100 0028                 26      BSR CONVERTER
+0000102E  13C0 00E00006             27      MOVE.B D0, $E00006
+00001034                            28      
+00001034  103C 0002                 29      MOVE.B #2, D0
+00001038  6100 001A                 30      BSR CONVERTER
+0000103C  13C0 00E00008             31      MOVE.B D0, $E00008
+00001042                            32      
+00001042  103C 0003                 33      MOVE.B #3, D0
+00001046  6100 000C                 34      BSR CONVERTER
+0000104A  13C0 00E0000A             35      MOVE.B D0, $E0000A
+00001050                            36  
+00001050                            37      
+00001050  103C 0002                 38      MOVE.B #2, D0
+00001054                            39      
+00001054                            40  
+00001054                            41  CONVERTER:  ; CONVERTE O DÍGITO BINÁRIO EM BEM D0 EM UM CÓDIGO DE DISPLAY
+00001054  41F8 0000                 42      LEA VETOR, A0 ; A0 APONTA PARA O INÍCIO DO VETOR
+00001058                            43      
+00001058  1030 0000                 44      MOVE.B (A0, D0), D0     ; SOMA A0+D0, OBTENDO O ENDEREÇO DO "DESENHO"
+0000105C                            45                              ; DO DÍGITO EM DISPLAY DE 7 ENDEREÇOS
+0000105C                            46                              ; POR ENDEREÇAMENTO INDIRETO, MOVE O CONTEÚDO
+0000105C                            47                              ; DO ENDEREÇO A0+D0 PARA O REGISTRADOR D0
+0000105C                            48      
+0000105C  4E75                      49      RTS ; RETORNA DA SUB-ROTINA
+0000105E                            50   
+0000105E                            51  
+0000105E  FFFF FFFF                 52      SIMHALT             ; halt simulator
+00001062                            53  
+00001062                            54  * Put variables and constants here
+00001062                            55  
+00001062                            56      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+CONVERTER           1054
+START               1000
+VETOR               0

@@ -1,0 +1,41 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 27/03/2023 19:01:43
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Put program code here
+00001000                            11  
+00001000  4279 00E00000             12      CLR.W $E00000
+00001006  08F9 0000 00E00000        13      BSET #0, $E00000
+0000100E  08F9 0001 00E00000        14      BSET #1, $E00000
+00001016  08F9 0002 00E00000        15      BSET #2, $E00000
+0000101E  08F9 0003 00E00000        16      BSET #3, $E00000
+00001026  08F9 0004 00E00000        17      BSET #4, $E00000
+0000102E  08F9 0005 00E00000        18      BSET #5, $E00000
+00001036  08F9 0006 00E00000        19      BSET #6, $E00000
+0000103E  08F9 0007 00E00000        20      BSET #7, $E00000
+00001046  08F9 0008 00E00000        21      BSET #8, $E00000
+0000104E                            22      
+0000104E                            23  
+0000104E  FFFF FFFF                 24      SIMHALT             ; halt simulator
+00001052                            25  
+00001052                            26  * Put variables and constants here
+00001052                            27  
+00001052                            28      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000
